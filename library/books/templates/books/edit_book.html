@@ -5,12 +5,11 @@
 
 <div class="content-section">
     <form action="" method="POST" novalidate>
-        <strong><h2 class="border-bottom mb-4 text-center alert alert-info">Add Book</h2></strong>
+        <strong><h2 class="border-bottom mb-4 text-center alert alert-info">Update Book Data</h2></strong>
         {% csrf_token %}
         {{ form|crispy }}
-        <button class="btn btn-outline-info" type="submit">ADD</button>
+        <button class="btn btn-outline-dark" type="submit">Update</button>
     </form>
 </div>
-
 
 {% endblock %}

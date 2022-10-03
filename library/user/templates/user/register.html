@@ -1,0 +1,32 @@
+
+{% extends 'books/base.html' %}
+{% block content %}
+
+<div class="content-section col-5">
+
+<div class="header-bar">
+    <h1>Register</h1>
+</div>
+
+<div class="card-body">
+    <form method="Post">
+        {% csrf_token %}
+
+        <label>{{form.username.label}}</label><br>
+        {{form.username}}<br>
+
+        <label>{{form.password1.label}}</label><br>
+        {{form.password1}}<br>
+
+        <label>{{form.password2.label}}</label><br>
+        {{form.password2}}<br>
+
+        <input style="margin-top: 10px;" class="button border-bottom mb-4 text-center alert alert-info" type="submit" value="Register">
+    </form>
+    <small>Already have an account? <a href="{% url 'login' %}">Login Here</a></small>
+</div>
+
+</div>
+{% endblock content %}
+
+

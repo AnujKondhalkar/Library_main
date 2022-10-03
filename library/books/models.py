@@ -10,4 +10,4 @@ class Book(models.Model):
     author = models.CharField(max_length=200)
     price = models.IntegerField(blank=True, null=True)
     publication_date = models.CharField(max_length=200)
-    ISBN_no = models.IntegerField(blank=True, null=True)
+    ISBN_no = models.CharField(max_length=20)

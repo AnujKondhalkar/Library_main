@@ -1,0 +1,20 @@
+{% extends 'books/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="content-section">
+    <form action="" method="POST" novalidate>
+        <strong><h2 class="border-bottom mb-4 text-center alert alert-info">LOG IN</h2></strong>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-outline-info" type="submit">Sign In</button>
+    </form>
+    <small>Don't have an Account? <a href="{% url 'register' %}">Register Here</a></small>
+</div>
+
+{% endblock content %}
+
+
+
+
