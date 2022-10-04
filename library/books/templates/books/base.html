@@ -32,16 +32,17 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>  <!-- name variable in path is taken here urls.py in books -->
               {% if user.is_authenticated %}
-              <a class="nav-item nav-link" href="{% url 'add_book' %}">Add Book</a>
-              <a class="nav-item nav-link" href="{% url 'show_book' %}">Show Book</a>
-              <a class="nav-item nav-link" href="{% url 'update_book' %}">Update Book</a>
+                <a class="nav-item nav-link" href="{% url 'show_book' %}">Show Book</a>
+                {% if user.is_authenticated and user.is_superuser %}
+                  <a class="nav-item nav-link" href="{% url 'add_book' %}">Add Book</a>
+                  <a class="nav-item nav-link" href="{% url 'update_book' %}">Update Book</a>
+                {% endif %}
               {% endif %}
 
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
-                <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
               {% else %}
                 <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>

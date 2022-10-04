@@ -138,3 +138,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  # It Will give a nice design and signals
+LOGIN_REDIRECT_URL = 'home'

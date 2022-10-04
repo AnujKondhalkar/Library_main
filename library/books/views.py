@@ -78,7 +78,6 @@ def delete_book(request, id):
 
 
 def edit_book(request, id):
-
     if request.user.is_superuser:
         if request.method == 'POST':
             obj = Book.objects.get(pk=id)
