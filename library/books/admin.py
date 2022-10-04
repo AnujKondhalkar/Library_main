@@ -3,6 +3,8 @@ from .models import Book
 
 # Register your models here.
 
+# This book model is registered to database which can be accessed
+# via admin panel by superuser which have all permision to do operation on it.
 
 @admin.register(Book)
 class BookAdmin(admin.ModelAdmin):

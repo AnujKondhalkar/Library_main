@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'crispy_forms',
-    'books',
-    'user',
+    'crispy_forms',   # It is used for the css design of form but also the main purpose of it is to show the responsive effect
+                      # like data error and validation error , data is already availbe or not and etc.
+    'books',  # app imported and connected project
+    'user',   # app imported and connected project
+
 ]
 
 MIDDLEWARE = [
@@ -57,8 +59,9 @@ ROOT_URLCONF = 'library.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        # will find the folder in main directory
         'DIRS': [BASE_DIR, 'templates'],
-        'APP_DIRS': True,
+        'APP_DIRS': True,  # will find templates in app directory
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -94,7 +97,6 @@ DATABASES = {
         'PORT': '3306',
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -138,4 +140,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  # It Will give a nice design and signals
+# after successful login it will bring user to mentioned page (by default /account/profile/)
 LOGIN_REDIRECT_URL = 'home'
