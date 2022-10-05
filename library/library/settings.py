@@ -147,4 +147,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'  # It Will give a nice design and signals
 # after successful login it will bring user to mentioned page (by default /account/profile/)
 LOGIN_REDIRECT_URL = 'home'
-django_heroku.settings(locals())
