@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls), # admin path only for superuser
-    path('', include('user.urls')),  # urls path are attached here to create an absolute path for main urls in this project
-    path('', include('books.urls')), #  urls path are attached here to create an absolute path for main urls in this project
+    path('admin/', admin.site.urls),  # admin path only for superuser
+    # urls path are attached here to create an absolute path for main urls in this project
+    path('', include('user.urls')),
+    # urls path are attached here to create an absolute path for main urls in this project
+    path('', include('books.urls')),
 
 ]
