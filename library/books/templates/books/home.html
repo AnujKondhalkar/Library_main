@@ -2,15 +2,22 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div>
-<h1>Greetings ! </h1>
-<p> Solution For Project Statement Assignment made by Anuj Kondhalkar .<br>
-    This Project is made under the guidance of Sr. Software Engineer Mr. Anup Pathak ( Keywordio ).
-</p>
-<strong><p>GitHub Link For The Source Code of This Project</p></strong>
-<a href="https://github.com/AnujKondhalkar/Library_main.git" class="btn btn-outline-dark btn-sm d-inline "><strong>GitHub</strong></a>
-<a href="https://hackerrank.com/imanuj13" class="btn btn-outline-success btn-sm d-inline"><strong>HackerRank</strong></a>
-<a href="https://www.linkedin.com/in/anujkondhalkar" class="btn btn-outline-primary btn-sm d-inline"><strong>LinkedIn</strong></a>
+<style type="text/css"></style>
+<div class="content-section">
+    <h1>Greetings ! </h1>
+    <h3> Hello {{username}}!</h3>
+    <h4>Welcome To My Library.</h4>
+    <p><em>Solution for this project statement assignment made by Anuj Kondhalkar.<br>
+        This Project is made under the guidance of Sr. Software Engineer Mr.Anup Pathak Sir (Keywordio.com).</em></p><br>
+
+    {% if request.user.is_authenticated %}
+        <div class="content-section ">
+            <strong><p>GitHub Link For The Source Code of This Project Is Given Below</p></strong>
+            <a href="https://github.com/AnujKondhalkar/Library_main.git" class="btn btn-outline-dark btn-sm d-inline "><strong>GitHub</strong></a>
+            <a href="https://hackerrank.com/imanuj13" class="btn btn-outline-success btn-sm d-inline"><strong>HackerRank</strong></a>
+            <a href="https://www.linkedin.com/in/anujkondhalkar" class="btn btn-outline-primary btn-sm d-inline"><strong>LinkedIn</strong></a>
+        </div>
+    {% endif %}
 </div>
 
 {% endblock %}

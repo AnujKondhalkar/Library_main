@@ -33,7 +33,7 @@
         <td>{{bl.publication_date}}</td>
         <td>{{bl.ISBN_no}}</td>
         <td>
-          <a href="{% url 'edit_book' bl.id %}" class="btn btn-outline-warning btn-sm">&#128393;</a>
+          <a href="{% url 'edit_book' bl.id %}" class="btn btn-outline-primary btn-sm">&#128393;</a>
           <form action="{% url 'delete_book' bl.id %}" method="post" class="d-inline">
             {% csrf_token %}
             <input type="submit" class="btn btn-outline-danger btn-sm" name="" value="&#x274C;">

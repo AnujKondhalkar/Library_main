@@ -7,19 +7,40 @@ from .models import Book
 # Just To Retrieve A book object
 from django.contrib import messages
 # Interactive Information message
+from django.contrib.auth.models import User
+
+
+# def base(request, id):
+#     if user.is_authenticated:
+#         obj = User.objects.get(pk=id)
+#         username = obj.username
+#         print(username)
+#     else:
+#         username = "Hello Guest!"
+#     return render(request, 'books/base.html', {'username': username})
+
+
+def get_username(request):
+    username = None
+    if request.user.is_authenticated:
+        username = request.user.username
+    else:
+        username = 'Guest'
+    return username
 
 
 # Book_title = []
 
 
 def home(request):
-    return render(request, 'books/home.html')
+    username = get_username(request)
+    return render(request, 'books/home.html', {'username': username})
 
 
 # title, author,price, publication_date, ISBN_no
 
 # All are function based views show below
-
+# CREATE
 def add_book(request):
     if request.user.is_superuser:   # this Perticula view can only be accessed by Admin a.k.a superuser
         if request.method == 'POST':  # Post Request when url is hit while submision of form
@@ -70,12 +91,22 @@ def add_book(request):
             request, "Only Admin Have Permission To Add A Book!")
         return redirect('home')  # Only admin can use this view
 
+# RETRIEVE
+
 
 def show_book(request):
-    book_list = Book.objects.all()
-    # All book objects are retrieved and mentioned in context data dictionary {'book_data': book_list}
-    # which will be rendered and every element in that context data will be shown in html page
-    return render(request, 'books/show.html', {'book_data': book_list})
+    if request.user.is_authenticated:
+        book_list = Book.objects.all()
+        # All book objects are retrieved and mentioned in context data dictionary {'book_data': book_list}
+        # which will be rendered and every element in that context data will be shown in html page
+        return render(request, 'books/show.html', {'book_data': book_list})
+    else:
+        messages.info(      # Only authenticated user can use this view
+            request, f"You Need To LogIn to Access Show Book Page")
+        return redirect('login')
+
+
+# UPDATE
 
 
 def update_book(request):
@@ -118,6 +149,8 @@ def edit_book(request, id):  # view for edit data of an object here e.g. book ob
         messages.warning(
             request, "Only Admin Have Permission To Update A Book!")  # if not admin bring user to home page
         return redirect('home')
+
+# DELETE
 
 
 def delete_book(request, id):  # view for delete an object here e.g. book object
