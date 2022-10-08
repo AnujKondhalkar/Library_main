@@ -101,8 +101,8 @@ def show_book(request):
         # which will be rendered and every element in that context data will be shown in html page
         return render(request, 'books/show.html', {'book_data': book_list})
     else:
-        messages.info(      # Only authenticated user can use this view
-            request, f"You Need To LogIn to Access Show Book Page")
+        # Only authenticated user can use this view
+        messages.info(request, f"You Need To LogIn to Access Show Book Page")
         return redirect('login')
 
 
