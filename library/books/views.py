@@ -161,7 +161,7 @@ def delete_book(request, id):  # view for delete an object here e.g. book object
             print(obj.title)  # title of that book object
             # built in delete function of object book object class will be used to delete that respective book object.
             obj.delete()
-            # message explained bove multiple times
+            # message explained above multiple times
             messages.info(
                 request, f'Book {obj.title} is successfully deleted!')
             return redirect('update_book')
